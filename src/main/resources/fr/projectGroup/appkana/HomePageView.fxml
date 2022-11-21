@@ -1,27 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.CheckBox?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="fr.projectGroup.appkana.HomePageController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label text="KANA TRAINING"/>
+<?import javafx.scene.layout.BorderPane?>
 
-    <Label text="Choose options"/>
-    <HBox alignment="CENTER">
-        <CheckBox fx:id="hiraganaCheckBox" text="Hiragana"/>
-        <CheckBox fx:id="katakanaCheckBox" text="Kanakata"/>
-        <CheckBox fx:id="dakutenCheckBox" text="Dakuten"/>
-    </HBox>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" prefWidth="1280" prefHeight="720"
+            fx:controller="fr.projectGroup.appkana.HomePageController">
+    <top>
+        <Label BorderPane.alignment="CENTER" text="KANA TRAINING"/>
+    </top>
 
-    <Button text="start game" onAction="#onStartGameButtonClick"/>
-    <Label fx:id="errorButtonMessage" textFill="red"/>
-</VBox>
+    <center>
+        <VBox alignment="CENTER" spacing="20">
+            <Label text="Choose options"/>
+            <HBox alignment="CENTER" spacing="25">
+                <CheckBox fx:id="hiraganaCheckBox" text="Hiragana"/>
+                <CheckBox fx:id="katakanaCheckBox" text="Kanakata"/>
+                <CheckBox fx:id="dakutenCheckBox" text="Dakuten"/>
+            </HBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="CENTER" spacing="15">
+            <padding>
+                <Insets bottom="10"/>
+            </padding>
+
+            <Button onAction="#onStartGameButtonClick" text="start game"/>
+            <Label fx:id="errorButtonMessage" textFill="red"/>
+        </VBox>
+    </bottom>
+</BorderPane>

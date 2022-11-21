@@ -12,9 +12,10 @@ public class AppMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AppMain.class.getResource("HomePageView.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
+        stage.setScene(new Scene(fxmlLoader.load()));
 
         stage.setTitle("Kana Training");
+        stage.setResizable(true);
         stage.show();
     }
 
