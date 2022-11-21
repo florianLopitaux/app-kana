@@ -3,6 +3,6 @@ module com.example.appkana {
     requires javafx.fxml;
 
 
-    opens com.example.appkana to javafx.fxml;
-    exports com.example.appkana;
+    opens fr.projectGroup.appkana to javafx.fxml;
+    exports fr.projectGroup.appkana;
 }
