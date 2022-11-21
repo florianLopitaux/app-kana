@@ -23,4 +23,5 @@
     </HBox>
 
     <Button text="start game" onAction="#onStartGameButtonClick"/>
+    <Label fx:id="errorButtonMessage" textFill="red"/>
 </VBox>
