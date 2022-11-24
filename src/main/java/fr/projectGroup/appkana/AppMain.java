@@ -11,11 +11,13 @@ import java.io.IOException;
 public class AppMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AppMain.class.getResource("HomePageView.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load()));
-
         stage.setTitle("Kana Training");
         stage.setResizable(true);
+
+        Scene scene = new Scene(new HomePageController());
+        scene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/HomePageStyle.css").toExternalForm());
+
+        stage.setScene(scene);
         stage.show();
     }
 
