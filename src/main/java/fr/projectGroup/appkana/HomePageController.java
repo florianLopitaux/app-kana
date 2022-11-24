@@ -1,7 +1,8 @@
 package fr.projectGroup.appkana;
-;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -45,11 +46,13 @@ public class HomePageController extends BorderPane {
     // METHODS
     @FXML
     private void initialize() {
+        BorderPane.setMargin(this.getTop(), new Insets(25, 0, 0, 0));
+
         // Slider configuration
         this.kanaCountSlider.valueProperty().addListener((observable, oldValue, newValue) -> this.kanaCountSlider.setValue(newValue.intValue()));
         this.kanaCountSlider.valueProperty().addListener((observable, oldValue, newValue) -> this.kanaCountLabel.setText(newValue.toString()));
 
-        this.kanaCountSlider.setValue(1);
+        this.kanaCountSlider.setValue(10);
         this.hiraganaCheckBox.setSelected(true);
 
         // Checkbox listeners
