@@ -6,7 +6,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 
@@ -46,6 +47,14 @@ public class HomePageController extends BorderPane {
     // METHODS
     @FXML
     private void initialize() {
+        // Background image
+        Image bgImage = new Image(String.valueOf(getClass().getResource("/fr/projectGroup/appkana/img/bg_appkana.png")));
+        this.setBackground(new Background(new BackgroundImage(bgImage,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false))));
+
         BorderPane.setMargin(this.getTop(), new Insets(25, 0, 0, 0));
 
         // Slider configuration

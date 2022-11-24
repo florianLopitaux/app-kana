@@ -1,4 +1,8 @@
 /* LABELS */
+.label {
+    -fx-font-weight: 800;
+}
+
 #welcomeTitleLabel {
     -fx-font-size: 32px;
     -fx-font-family: "Arial Black";
@@ -41,4 +45,9 @@
     -fx-cursor: hand;
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
+}
+
+/* CHECKBOX */
+.check-box {
+    -fx-font-weight: 800;
 }
