@@ -3,6 +3,8 @@ package fr.projectGroup.appkana.model;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Objects;
+
 public class Kana {
     // FIELDS
     private final JapaneseSyllable syllable;
@@ -27,6 +29,30 @@ public class Kana {
 
 
     // METHODS
+
+    @Override
+    public String toString() {
+        return "Kana[syllable=" + this.syllable + ", kanaType=" + kanaType + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(syllable, kanaType);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Kana kana = (Kana) o;
+        return this.syllable == kana.getSyllable() && this.kanaType == kana.getKanaType();
+    }
+
     public ImageView getImage() {
         StringBuilder builder = new StringBuilder("/fr/projectGroup/appkana/img/");
 
