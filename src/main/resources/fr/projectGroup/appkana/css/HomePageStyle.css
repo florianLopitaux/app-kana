@@ -1,3 +1,4 @@
+/* LABELS */
 #welcomeTitleLabel {
     -fx-font-size: 32px;
     -fx-font-family: "Arial Black";
@@ -7,4 +8,10 @@
 
 #errorButtonMessage {
     -fx-text-fill: red;
+}
+
+
+/* SLIDER */
+#kanaCountSlider {
+    -fx-max-width: 300px;
 }

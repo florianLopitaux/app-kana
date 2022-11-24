@@ -1,9 +1,10 @@
 package fr.projectGroup.appkana;
-
+;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -12,12 +13,15 @@ public class HomePageController extends BorderPane {
     // FIELDS
     @FXML
     private CheckBox hiraganaCheckBox;
-
     @FXML
     private CheckBox katakanaCheckBox;
-
     @FXML
     private CheckBox dakutenCheckBox;
+
+    @FXML
+    private Slider kanaCountSlider;
+    @FXML
+    private Label kanaCountLabel;
 
     @FXML
     private Label errorButtonMessage;
@@ -41,11 +45,37 @@ public class HomePageController extends BorderPane {
     // METHODS
     @FXML
     private void initialize() {
+        // Slider configuration
+        this.kanaCountSlider.valueProperty().addListener((observable, oldValue, newValue) -> this.kanaCountSlider.setValue(newValue.intValue()));
+        this.kanaCountSlider.valueProperty().addListener((observable, oldValue, newValue) -> this.kanaCountLabel.setText(newValue.toString()));
 
+        this.kanaCountSlider.setValue(1);
+        this.hiraganaCheckBox.setSelected(true);
+
+        // Checkbox listeners
+        this.hiraganaCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (this.katakanaCheckBox.isSelected()) {
+                changeMaxSlider(newValue);
+            }
+        });
+
+        this.katakanaCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (this.hiraganaCheckBox.isSelected()) {
+                changeMaxSlider(newValue);
+            }
+        });
+
+        this.dakutenCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() + 25);
+            } else {
+                this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() - 25);
+            }
+        });
     }
 
     @FXML
-    protected void onStartGameButtonClick() {
+    private void onStartGameButtonClick() {
         System.out.println("click on button !");
 
         if (!hiraganaCheckBox.isSelected() && !katakanaCheckBox.isSelected()) {
@@ -56,5 +86,13 @@ public class HomePageController extends BorderPane {
         }
 
         System.out.println("Launch game !");
+    }
+
+    private void changeMaxSlider(boolean isChecked) {
+        if (isChecked) {
+            this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() + 46);
+        } else {
+            this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() - 46);
+        }
     }
 }
