@@ -1,19 +1,22 @@
 package fr.projectGroup.appkana;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class AppMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AppMain.class.getResource("appView.fxml"));
-        stage.setScene(new Scene(fxmlLoader.load(), 1280, 720));
-
         stage.setTitle("Kana Training");
+        stage.setResizable(true);
+
+        Scene scene = new Scene(new HomePageController());
+        scene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/HomePageStyle.css").toExternalForm());
+
+        stage.setScene(scene);
         stage.show();
     }
 
