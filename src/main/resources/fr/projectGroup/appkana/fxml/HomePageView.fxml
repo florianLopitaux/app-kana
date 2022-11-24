@@ -14,7 +14,7 @@
          xmlns:fx="http://javafx.com/fxml"
          prefWidth="1280" prefHeight="720">
     <top>
-        <Label BorderPane.alignment="CENTER" text="KANA TRAINING"/>
+        <Label fx:id="welcomeTitleLabel" BorderPane.alignment="CENTER" text="KANA TRAINING"/>
     </top>
 
     <center>
@@ -35,7 +35,7 @@
             </padding>
 
             <Button onAction="#onStartGameButtonClick" text="start game"/>
-            <Label fx:id="errorButtonMessage" textFill="red"/>
+            <Label fx:id="errorButtonMessage"/>
         </VBox>
     </bottom>
 </fx:root>
