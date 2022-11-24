@@ -1,4 +1,4 @@
-package fr.projectGroup.appkana;
+package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
