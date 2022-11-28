@@ -2,6 +2,7 @@ package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -53,5 +54,18 @@ public class ResultPageController extends VBox {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false))));
+    }
+
+    @FXML
+    private void onReturnHomeButtonClick() {
+        Scene homeScene = new Scene(new HomePageController(this.primaryStage));
+        homeScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/HomePageStyle.css").toExternalForm());
+
+        this.primaryStage.setScene(homeScene);
+    }
+
+    @FXML
+    private void onRetryButtonClick() {
+
     }
 }
