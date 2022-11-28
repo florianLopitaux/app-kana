@@ -8,6 +8,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -51,13 +52,18 @@ public class GamePageController extends VBox {
     // METHODS
     @FXML
     private void initialize() {
-        this.scoreLabel.setText("Score : " + this.playerScore + " / " + this.nbKanaToGuess);
+        this.scoreLabel.setText("Score : " + this.playerScore.get() + " / " + this.nbKanaToGuess);
 
         for (int row = 0; row < nbKanaToGuess / 6; ++row) {
             for (int column = 0; column < 6; ++column) {
                 GuessPane guessPane = new GuessPane(this.generateNewKana());
-                this.guessPaneContainer.add(guessPane, row, column);
+                this.guessPaneContainer.add(guessPane, column, row);
             }
+        }
+
+        for (int column = 0; column < nbKanaToGuess % 6; ++column) {
+            GuessPane guessPane = new GuessPane(this.generateNewKana());
+            this.guessPaneContainer.add(guessPane, column, nbKanaToGuess / 6 + 1);
         }
     }
 

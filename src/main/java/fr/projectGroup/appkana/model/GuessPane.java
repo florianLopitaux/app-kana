@@ -1,5 +1,6 @@
 package fr.projectGroup.appkana.model;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
@@ -13,6 +14,8 @@ public class GuessPane extends VBox {
     // CONSTRUCTOR
     public GuessPane(Kana kana) {
         this.setId("GuessPane");
+        this.setAlignment(Pos.CENTER);
+
         this.kana = kana;
 
         this.buildWidget();

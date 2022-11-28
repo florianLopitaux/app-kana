@@ -62,6 +62,11 @@ public class Kana {
         }
 
         builder.append(this.syllable.getRomanji()).append(".png");
-        return new ImageView(new Image(String.valueOf(getClass().getResource(builder.toString()))));
+
+        ImageView image = new ImageView(new Image(String.valueOf(getClass().getResource(builder.toString()))));
+        image.setFitWidth(150);
+        image.setFitHeight(150);
+
+        return image;
     }
 }
