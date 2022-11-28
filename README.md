@@ -9,7 +9,7 @@ Et vous allez voir il n'est pas si difficile de s'en approprier sa calligraphie.
 
 [image du jeu]
 
-# A propos de ce jeu
+# A propos du jeu
 
 App-kana, c'est LE jeu de quiz des hiraganas qui vous permet de développer vos connaissances en vous amusant ! Rejoignez notre communauté de joueurs, et défiez vos amis. Un jeu qui vous initiera à la langue du Japon.
 
