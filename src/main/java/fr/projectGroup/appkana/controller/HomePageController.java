@@ -20,8 +20,6 @@ public class HomePageController extends BorderPane {
     private CheckBox hiraganaCheckBox;
     @FXML
     private CheckBox katakanaCheckBox;
-    @FXML
-    private CheckBox dakutenCheckBox;
 
     @FXML
     private Slider kanaCountSlider;
@@ -78,14 +76,6 @@ public class HomePageController extends BorderPane {
         this.katakanaCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (this.hiraganaCheckBox.isSelected()) {
                 changeMaxSlider(newValue);
-            }
-        });
-
-        this.dakutenCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() + 25);
-            } else {
-                this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() - 25);
             }
         });
     }

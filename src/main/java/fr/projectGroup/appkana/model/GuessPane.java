@@ -12,7 +12,9 @@ public class GuessPane extends VBox {
 
     // CONSTRUCTOR
     public GuessPane(Kana kana) {
+        this.setId("GuessPane");
         this.kana = kana;
+
         this.buildWidget();
     }
 
