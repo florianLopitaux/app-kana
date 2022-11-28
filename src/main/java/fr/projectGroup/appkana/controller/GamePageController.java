@@ -54,7 +54,10 @@ public class GamePageController extends VBox {
         this.scoreLabel.setText("Score : " + this.playerScore + " / " + this.nbKanaToGuess);
 
         for (int row = 0; row < nbKanaToGuess / 6; ++row) {
-            GuessPane guessPane = new GuessPane(this.generateNewKana());
+            for (int column = 0; column < 6; ++column) {
+                GuessPane guessPane = new GuessPane(this.generateNewKana());
+                this.guessPaneContainer.add(guessPane, row, column);
+            }
         }
     }
 

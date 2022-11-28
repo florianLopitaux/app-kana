@@ -59,7 +59,6 @@ public class Kana {
         switch (this.kanaType) {
             case HIRAGANA -> builder.append("hiragana/");
             case KATAKANA -> builder.append("katakana/");
-            case DAKUTEN -> builder.append("dakuten/");
         }
 
         builder.append(this.syllable.getRomanji()).append(".png");

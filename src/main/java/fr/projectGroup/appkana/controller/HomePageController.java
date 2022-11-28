@@ -3,6 +3,7 @@ package fr.projectGroup.appkana.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -91,7 +92,10 @@ public class HomePageController extends BorderPane {
             errorButtonMessage.setText("");
         }
 
-        System.out.println("Launch game !");
+        Scene gameScene = new Scene(new GamePageController((int) this.kanaCountSlider.getValue(), this.hiraganaCheckBox.isSelected(), this.katakanaCheckBox.isSelected()));
+        gameScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/GamePageStyle.css").toExternalForm());
+
+        this.primaryStage.setScene(gameScene);
     }
 
     private void changeMaxSlider(boolean isChecked) {
