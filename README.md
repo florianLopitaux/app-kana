@@ -39,7 +39,7 @@ App-kana, c'est LE jeu de quiz des hiraganas qui vous permet de développer vos 
 
 - Background : [Dojo](https://github.com/florianLopitaux/app-kana/blob/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/bg_appkana.png)
 - [Katakanas](https://github.com/florianLopitaux/app-kana/tree/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/katakana)
-- [Hiraganas]()
+- [Hiraganas](https://github.com/florianLopitaux/app-kana/tree/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/hiragana)
 
 ## Inspirations
 
