@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.geometry.Insets?>
+
+<fx:root type="javafx.scene.layout.VBox"
+         xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+         fx:id="rootPane" prefWidth="1280" prefHeight="720" spacing="100" alignment="CENTER">
+
+    <Label fx:id="scoreLabel"/>
+
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <padding>
+            <Insets top="20" bottom="20"/>
+        </padding>
+
+        <GridPane fx:id="guessPaneContainer" alignment="CENTER" hgap="20" vgap="30"/>
+    </ScrollPane>
+
+</fx:root>

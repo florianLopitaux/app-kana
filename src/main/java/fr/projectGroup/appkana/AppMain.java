@@ -1,5 +1,6 @@
 package fr.projectGroup.appkana;
 
+import fr.projectGroup.appkana.controller.HomePageController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -11,9 +12,9 @@ public class AppMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Kana Training");
-        stage.setResizable(true);
+        stage.setResizable(false);
 
-        Scene scene = new Scene(new HomePageController());
+        Scene scene = new Scene(new HomePageController(stage));
         scene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/HomePageStyle.css").toExternalForm());
 
         stage.setScene(scene);

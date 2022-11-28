@@ -1,0 +1,21 @@
+#scoreLabel {
+    -fx-font-size: 32px;
+    -fx-font-weight: 800;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: #818181;
+    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.7), 6, 0, 0, 2);
+}
+
+#GuessPane {
+    -fx-max-width: 170;
+    -fx-max-height: 170;
+
+    -fx-background-color: #DD985C;
+    -fx-background-radius: 3%;
+
+    -fx-alignment: center;
+}
+
+.text-field {
+    -fx-alignment: center;
+}

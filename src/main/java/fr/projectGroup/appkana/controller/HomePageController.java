@@ -1,24 +1,26 @@
-package fr.projectGroup.appkana;
+package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HomePageController extends BorderPane {
     // FIELDS
+    private final Stage primaryStage;
+
     @FXML
     private CheckBox hiraganaCheckBox;
     @FXML
     private CheckBox katakanaCheckBox;
-    @FXML
-    private CheckBox dakutenCheckBox;
 
     @FXML
     private Slider kanaCountSlider;
@@ -30,7 +32,8 @@ public class HomePageController extends BorderPane {
 
 
     // CONSTRUCTOR
-    public HomePageController() {
+    public HomePageController(Stage primaryStage) {
+        this.primaryStage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/HomePageView.fxml"));
 
         fxmlLoader.setRoot(this);
@@ -76,14 +79,6 @@ public class HomePageController extends BorderPane {
                 changeMaxSlider(newValue);
             }
         });
-
-        this.dakutenCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() + 25);
-            } else {
-                this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() - 25);
-            }
-        });
     }
 
     @FXML
@@ -97,7 +92,10 @@ public class HomePageController extends BorderPane {
             errorButtonMessage.setText("");
         }
 
-        System.out.println("Launch game !");
+        Scene gameScene = new Scene(new GamePageController((int) this.kanaCountSlider.getValue(), this.hiraganaCheckBox.isSelected(), this.katakanaCheckBox.isSelected()));
+        gameScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/GamePageStyle.css").toExternalForm());
+
+        this.primaryStage.setScene(gameScene);
     }
 
     private void changeMaxSlider(boolean isChecked) {
