@@ -1,9 +1,12 @@
 package fr.projectGroup.appkana.model;
 
-import javafx.geometry.Pos;
+import fr.projectGroup.appkana.controller.GamePageController;
+import javafx.beans.property.IntegerProperty;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
+
+import java.util.Set;
 
 public class GuessPane extends VBox {
     // FIELDS
@@ -12,31 +15,53 @@ public class GuessPane extends VBox {
 
 
     // CONSTRUCTOR
-    public GuessPane(Kana kana) {
+    public GuessPane(Kana kana, GamePageController gamePageController) {
         this.setId("GuessPane");
-        this.setAlignment(Pos.CENTER);
 
         this.kana = kana;
 
-        this.buildWidget();
+        this.buildWidget(gamePageController);
+    }
+
+
+    // GETTER
+    public TextField getTextField() {
+        return this.textField;
     }
 
 
     // METHODS
-    private void buildWidget() {
+    private void buildWidget(GamePageController gamePageController) {
         this.getChildren().add(this.kana.getImage());
 
         this.textField = new TextField();
         this.textField.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                if (kana.getSyllable().getRomanji().equalsIgnoreCase(this.textField.getText())) {
-                    System.out.println("bien joué");
-                } else {
-                    System.out.println("pas bien joué");
-                }
+            if (!(event.getCode() == KeyCode.ENTER)) {
+                return;
+            }
+
+            if (kana.getSyllable().getRomanji().equalsIgnoreCase(this.textField.getText())) {
+                gamePageController.getPlayerScore().setValue(gamePageController.getPlayerScore().get() + 1);
+            } else {
+                System.out.println("Mauvaise syllabe");
+            }
+
+            this.textField.setDisable(true);
+            if (this.isGameFinished(gamePageController)) {
+                gamePageController.finishGame();
             }
         });
 
         this.getChildren().add(this.textField);
+    }
+
+    private boolean isGameFinished(GamePageController gamePageController) {
+        for (GuessPane currentGuessPane : gamePageController.getGuessPanesList()) {
+            if (!currentGuessPane.getTextField().isDisable()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

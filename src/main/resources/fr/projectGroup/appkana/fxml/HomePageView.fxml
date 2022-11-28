@@ -29,7 +29,7 @@
             </HBox>
 
             <HBox alignment="CENTER" spacing="15">
-                <Slider fx:id="kanaCountSlider" min="1" max="46" showTickMarks="true" showTickLabels="true" snapToTicks="true"/>
+                <Slider fx:id="kanaCountSlider" min="1" max="46" showTickMarks="true" showTickLabels="true"/>
                 <Label fx:id="kanaCountLabel"/>
             </HBox>
         </VBox>

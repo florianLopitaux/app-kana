@@ -8,16 +8,18 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 public class GamePageController extends VBox {
     // FIELDS
+    private final Set<GuessPane> guessPanesList;
     private final IntegerProperty playerScore;
     private final int nbKanaToGuess;
     private final boolean isHiraganaChecked, isKatakanaChecked;
@@ -31,11 +33,13 @@ public class GamePageController extends VBox {
 
     // CONSTRUCTOR
     public GamePageController(int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
+        this.guessPanesList = new HashSet<>();
         this.nbKanaToGuess = nbKanaToGuess;
         this.isHiraganaChecked = isHiraganaChecked;
         this.isKatakanaChecked = isKatakanaChecked;
 
         this.playerScore = new SimpleIntegerProperty(0);
+        this.playerScore.addListener(event -> this.scoreLabel.setText("Score : " + this.playerScore.get() + " / " + this.nbKanaToGuess));
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/GamePageView.fxml"));
         fxmlLoader.setRoot(this);
@@ -49,20 +53,36 @@ public class GamePageController extends VBox {
     }
 
 
+    // GETTERS
+    public Set<GuessPane> getGuessPanesList() {
+        return this.guessPanesList;
+    }
+
+    public IntegerProperty getPlayerScore() {
+        return this.playerScore;
+    }
+
+
     // METHODS
+    public void finishGame() {
+        System.out.println("game finish");
+    }
+
     @FXML
     private void initialize() {
         this.scoreLabel.setText("Score : " + this.playerScore.get() + " / " + this.nbKanaToGuess);
 
         for (int row = 0; row < nbKanaToGuess / 6; ++row) {
             for (int column = 0; column < 6; ++column) {
-                GuessPane guessPane = new GuessPane(this.generateNewKana());
+                GuessPane guessPane = new GuessPane(this.generateNewKana(), this);
+                this.guessPanesList.add(guessPane);
                 this.guessPaneContainer.add(guessPane, column, row);
             }
         }
 
         for (int column = 0; column < nbKanaToGuess % 6; ++column) {
-            GuessPane guessPane = new GuessPane(this.generateNewKana());
+            GuessPane guessPane = new GuessPane(this.generateNewKana(), this);
+            this.guessPanesList.add(guessPane);
             this.guessPaneContainer.add(guessPane, column, nbKanaToGuess / 6 + 1);
         }
     }
