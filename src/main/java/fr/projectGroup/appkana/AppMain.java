@@ -14,7 +14,7 @@ public class AppMain extends Application {
         stage.setTitle("Kana Training");
         stage.setResizable(true);
 
-        Scene scene = new Scene(new HomePageController());
+        Scene scene = new Scene(new HomePageController(stage));
         scene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/HomePageStyle.css").toExternalForm());
 
         stage.setScene(scene);

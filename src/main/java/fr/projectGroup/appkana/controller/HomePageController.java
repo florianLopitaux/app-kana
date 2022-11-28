@@ -8,11 +8,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class HomePageController extends BorderPane {
     // FIELDS
+    private final Stage primaryStage;
+
     @FXML
     private CheckBox hiraganaCheckBox;
     @FXML
@@ -30,7 +33,8 @@ public class HomePageController extends BorderPane {
 
 
     // CONSTRUCTOR
-    public HomePageController() {
+    public HomePageController(Stage primaryStage) {
+        this.primaryStage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/HomePageView.fxml"));
 
         fxmlLoader.setRoot(this);
