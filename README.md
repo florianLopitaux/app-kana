@@ -28,7 +28,7 @@ App-kana, c'est LE jeu de quiz des hiraganas qui vous permet de développer vos 
 
 ##### Logiciels génériques de développement informatique
 
-- Editer du code : [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=linux)
+- Editeur de code : [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=linux)
 - Génération de l'alphabet : [Canva](https://www.canva.com)
 - Banque d'image et front : [SAVEE](https://www.savee.it)
    
