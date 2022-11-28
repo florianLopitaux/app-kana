@@ -1,0 +1,7 @@
+.hbox {
+    -fx-background-color: transparent;
+}
+
+.label {
+    -fx-font-weight: 800;
+}
