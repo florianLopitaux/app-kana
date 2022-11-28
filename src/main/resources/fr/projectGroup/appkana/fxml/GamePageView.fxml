@@ -5,6 +5,7 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.GridPane?>
+
 <fx:root type="javafx.scene.layout.VBox"
          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
          fx:id="rootPane" prefWidth="1280" prefHeight="720">

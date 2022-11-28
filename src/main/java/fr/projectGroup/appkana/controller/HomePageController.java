@@ -33,7 +33,7 @@ public class HomePageController extends BorderPane {
 
     // CONSTRUCTOR
     public HomePageController(Stage primaryStage) {
-        this.primaryStage = new Stage();
+        this.primaryStage = primaryStage;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/HomePageView.fxml"));
 
         fxmlLoader.setRoot(this);

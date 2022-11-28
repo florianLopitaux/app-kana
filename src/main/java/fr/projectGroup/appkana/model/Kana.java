@@ -57,7 +57,7 @@ public class Kana {
         StringBuilder builder = new StringBuilder("/fr/projectGroup/appkana/img/");
 
         switch (this.kanaType) {
-            case HIRAGANA -> builder.append("hiragana/katakana_");
+            case HIRAGANA -> builder.append("hiragana/hiragana_");
             case KATAKANA -> builder.append("katakana/katakana_");
         }
 
