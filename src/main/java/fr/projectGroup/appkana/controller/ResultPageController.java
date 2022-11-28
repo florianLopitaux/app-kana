@@ -42,6 +42,16 @@ public class ResultPageController extends VBox {
         }
 
         this.textResult.setText("Votre score : " + playerScore + " / " + nbKanaToGuess + "\n(" + percentage + "%)");
+
+        if (percentage <= 25) {
+            msgReward.setText("Tu n'es qu'au début de ton apprentissage :(");
+        } else if (percentage <= 50) {
+            msgReward.setText("Tu commences à y arriver mais il te reste beaucoup de progrès à faire");
+        } else if (percentage <= 75) {
+            msgReward.setText("Plutôt pas mal, tu n'as fait que quelques erreurs :)");
+        } else {
+            msgReward.setText("Super ! Tu es un pro des kana !");
+        }
     }
 
 
