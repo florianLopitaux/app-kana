@@ -8,9 +8,11 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -19,6 +21,7 @@ import java.util.Set;
 
 public class GamePageController extends VBox {
     // FIELDS
+    private final Stage primaryStage;
     private final Set<GuessPane> guessPanesList;
     private final IntegerProperty playerScore;
     private final int nbKanaToGuess;
@@ -32,7 +35,8 @@ public class GamePageController extends VBox {
 
 
     // CONSTRUCTOR
-    public GamePageController(int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
+    public GamePageController(Stage primaryStage, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
+        this.primaryStage = primaryStage;
         this.guessPanesList = new HashSet<>();
         this.nbKanaToGuess = nbKanaToGuess;
         this.isHiraganaChecked = isHiraganaChecked;
@@ -65,7 +69,10 @@ public class GamePageController extends VBox {
 
     // METHODS
     public void finishGame() {
-        System.out.println("game finish");
+        Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess));
+        resultScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/ResultPageStyle.css").toExternalForm());
+
+        this.primaryStage.setScene(resultScene);
     }
 
     @FXML

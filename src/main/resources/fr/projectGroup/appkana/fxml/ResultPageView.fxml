@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+
+<?import javafx.scene.control.Button?>
 <fx:root type="javafx.scene.layout.VBox"
          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-         prefHeight="1280" prefWidth="720">
+         prefWidth="1280" prefHeight="720" alignment="CENTER" spacing="7">
+
+    <Label fx:id="textResult"/>
+    <Label fx:id="msgReward"/>
+
+    <HBox alignment="CENTER" spacing="35">
+        <Button fx:id="returnButton" text="Return Home"/>
+        <Button fx:id="retryButton" text="Retry"/>
+    </HBox>
 
 </fx:root>

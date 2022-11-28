@@ -92,7 +92,7 @@ public class HomePageController extends BorderPane {
             errorButtonMessage.setText("");
         }
 
-        Scene gameScene = new Scene(new GamePageController((int) this.kanaCountSlider.getValue(), this.hiraganaCheckBox.isSelected(), this.katakanaCheckBox.isSelected()));
+        Scene gameScene = new Scene(new GamePageController(this.primaryStage, (int) this.kanaCountSlider.getValue(), this.hiraganaCheckBox.isSelected(), this.katakanaCheckBox.isSelected()));
         gameScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/GamePageStyle.css").toExternalForm());
 
         this.primaryStage.setScene(gameScene);
