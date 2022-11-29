@@ -31,10 +31,18 @@ public enum JapaneseSyllable {
     }
 
     // GETTER
+    /**
+     * Getter of the 'position' attribute.
+     * @return Integer: the position of syllable on the japanese alphabetic order (named 'Gojuuon')
+     */
     public int getPosition() {
         return this.position;
     }
 
+    /**
+     * Getter of the 'romaji' attribute.
+     * @return String: the syllable write in latin alphabet (named 'romanji')
+     */
     public String getRomanji() {
         return this.romanji;
     }
