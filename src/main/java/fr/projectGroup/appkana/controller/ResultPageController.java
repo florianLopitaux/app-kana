@@ -27,13 +27,13 @@ public class ResultPageController extends VBox implements JavaFXControllable {
 
     // CONSTRUCTOR
     /**
-     * The constructor of the
+     * The constructor of the ResultPageController class.
      *
-     * @param primaryStage
-     * @param playerScore
-     * @param nbKanaToGuess
-     * @param isHiraganaChecked
-     * @param isKatakanaChecked
+     * @param primaryStage: The stage that corresponds to the window.
+     * @param playerScore: The score of the player that he does on the game.
+     * @param nbKanaToGuess: The number of kana in the game page that the player had to guess.
+     * @param isHiraganaChecked: if the player had enabled the hiragana.
+     * @param isKatakanaChecked if the player had enabled the katakana.
      */
     public ResultPageController(Stage primaryStage, int playerScore, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
         this.primaryStage = primaryStage;
@@ -60,6 +60,10 @@ public class ResultPageController extends VBox implements JavaFXControllable {
 
 
     // METHODS
+
+    /**
+     * This method is automatically called by JavaFX and initialize or configure some things of the result page.
+     */
     @FXML
     private void initialize() {
         Image bgImage = new Image(String.valueOf(getClass().getResource("/fr/projectGroup/appkana/img/bg_appkana.png")));
@@ -70,6 +74,9 @@ public class ResultPageController extends VBox implements JavaFXControllable {
                 new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false))));
     }
 
+    /**
+     * This method corresponding on the return home button function when it clicked which redirected to the home page.
+     */
     @FXML
     private void onReturnHomeButtonClick() {
         Scene homeScene = new Scene(new HomePageController(this.primaryStage));
@@ -78,6 +85,9 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.primaryStage.setScene(homeScene);
     }
 
+    /**
+     * This method corresponding on the retry button function when it clicked which reload the game page with the same configuration.
+     */
     @FXML
     private void onRetryButtonClick() {
         Scene retryGameScene = new Scene(new GamePageController(this.primaryStage, this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
