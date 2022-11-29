@@ -5,6 +5,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 
+import java.util.Iterator;
+
 
 public class GuessPane extends VBox {
     // FIELDS
@@ -55,7 +57,11 @@ public class GuessPane extends VBox {
     }
 
     private boolean isGameFinished(GamePageController gamePageController) {
-        for (GuessPane currentGuessPane : gamePageController.getGuessPanesList()) {
+        Iterator<GuessPane> itGuessPane = gamePageController.getGuessPanesList().iterator();
+
+        while (itGuessPane.hasNext()) {
+            final GuessPane currentGuessPane = itGuessPane.next();
+
             if (!currentGuessPane.getTextField().isDisable()) {
                 return false;
             }
