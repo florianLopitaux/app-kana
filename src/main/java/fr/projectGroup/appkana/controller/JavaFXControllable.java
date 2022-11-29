@@ -1,3 +1,7 @@
+/**
+ * This interface contains some methods that use by all JavaFX controller class.
+ */
+
 package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXMLLoader;
@@ -7,6 +11,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public interface JavaFXControllable {
+    /**
+     * This method load the FXML file associated to the page that we want loading.
+     *
+     * @param pageName: the name of the page (to find the fxml file) that we want load.
+     * @throws RuntimeException: exception called when the method load of the FXMLLoader object crashed.
+     */
     default void loadFXMLFile(String pageName) throws RuntimeException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/" + pageName + "PageView.fxml"));
 
@@ -20,6 +30,12 @@ public interface JavaFXControllable {
         }
     };
 
+    /**
+     * This method link the css file corresponding with the page to the scene.
+     *
+     * @param scene: The scene which contains the page displaying.
+     * @param pageName: the name of the page (to find the css file) that we want link.
+     */
     default void linkSceneWithCSSFile(Scene scene, String pageName) {
         scene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/" + pageName + "PageStyle.css").toExternalForm());
     }
