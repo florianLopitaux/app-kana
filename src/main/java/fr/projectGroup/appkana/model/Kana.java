@@ -1,3 +1,9 @@
+/**
+ * Class that implement a generic kana (hiragana and katakana).
+ *
+ * @author florianLopitaux
+ */
+
 package fr.projectGroup.appkana.model;
 
 import javafx.scene.image.Image;
@@ -12,17 +18,35 @@ public class Kana {
 
 
     // CONSTRUCTOR
+
+    /**
+     * Constructor of the Kana class
+     *
+     * @param kanaType: the type of the kana instantiate.
+     * @param syllable: the syllable of the kana instantiate.
+     */
     public Kana(KanaType kanaType, JapaneseSyllable syllable) {
         this.kanaType = kanaType;
         this.syllable = syllable;
     }
 
 
-    // GETTER
+    // GETTERS
+
+    /**
+     * The getter of 'kanatype' attribute.
+     *
+     * @return KanaType: the kana type (hiragana et katakan) of this object.
+     */
     public KanaType getKanaType() {
         return this.kanaType;
     }
 
+    /**
+     * The getter of 'syllable' attribute.
+     *
+     * @return JapaneseSyllable: the syllable of this kana object.
+     */
     public JapaneseSyllable getSyllable() {
         return this.syllable;
     }
@@ -53,6 +77,11 @@ public class Kana {
         return this.syllable == kana.getSyllable() && this.kanaType == kana.getKanaType();
     }
 
+    /**
+     * This method lets to get the image FXML object of the kana with correct kana type and syllable.
+     *
+     * @return ImageView: The image JavaFX object.
+     */
     public ImageView getImage() {
         StringBuilder builder = new StringBuilder("/fr/projectGroup/appkana/img/");
 
