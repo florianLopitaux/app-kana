@@ -26,7 +26,7 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.isHiraganaChecked = isHiraganaChecked;
         this.isKatakanaChecked = isKatakanaChecked;
 
-        final double percentage = ((float)playerScore / nbKanaToGuess) * 100;
+        final double percentage = Math.round(((float)playerScore / nbKanaToGuess) * 100);
 
         this.loadFXMLFile("Result");
 
