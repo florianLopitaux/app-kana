@@ -9,8 +9,13 @@ import java.io.IOException;
 
 
 public class AppMain extends Application {
+    /**
+     * This method is an override from the Application class of the JavaFX library.
+     *
+     * @param stage: The JavaFx stage object to set our elements on the window.
+     */
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         stage.setTitle("Kana Training");
         stage.setResizable(false);
 
@@ -21,6 +26,11 @@ public class AppMain extends Application {
         stage.show();
     }
 
+    /**
+     * This main method is used to launch the application when the AppMain is executed.
+     *
+     * @param args: the arguments passed of the executable.
+     */
     public static void main(String[] args) {
         Application.launch();
     }
