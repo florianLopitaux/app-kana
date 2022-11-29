@@ -69,7 +69,7 @@ public class GamePageController extends VBox {
 
     // METHODS
     public void finishGame() {
-        Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess));
+        Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
         resultScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/ResultPageStyle.css").toExternalForm());
 
         this.primaryStage.setScene(resultScene);

@@ -14,6 +14,8 @@ import java.io.IOException;
 public class ResultPageController extends VBox {
     // FIELDS
     private final Stage primaryStage;
+    private final int nbKanaToGuess;
+    private final boolean isHiraganaChecked, isKatakanaChecked;
 
     @FXML
     Label textResult;
@@ -27,8 +29,12 @@ public class ResultPageController extends VBox {
 
 
     // CONSTRUCTOR
-    public ResultPageController(Stage primaryStage, int playerScore, int nbKanaToGuess) {
+    public ResultPageController(Stage primaryStage, int playerScore, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
         this.primaryStage = primaryStage;
+        this.nbKanaToGuess = nbKanaToGuess;
+        this.isHiraganaChecked = isHiraganaChecked;
+        this.isKatakanaChecked = isKatakanaChecked;
+
         final double percentage = ((float)playerScore / nbKanaToGuess) * 100;
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/ResultPageView.fxml"));
@@ -76,6 +82,9 @@ public class ResultPageController extends VBox {
 
     @FXML
     private void onRetryButtonClick() {
+        Scene retryGameScene = new Scene(new GamePageController(this.primaryStage, this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
+        retryGameScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/GamePageStyle.css").toExternalForm());
 
+        this.primaryStage.setScene(retryGameScene);
     }
 }
