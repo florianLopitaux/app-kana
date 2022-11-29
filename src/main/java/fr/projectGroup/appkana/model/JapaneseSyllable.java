@@ -1,3 +1,9 @@
+/**
+ * Enumerate which contains all japanese syllable with parameters (alphabetic order and syllable translate in romanji)
+ *
+ * @author nathanReboul
+ */
+
 package fr.projectGroup.appkana.model;
 
 public enum JapaneseSyllable {
