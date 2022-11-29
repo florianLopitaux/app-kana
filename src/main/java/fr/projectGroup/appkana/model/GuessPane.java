@@ -1,3 +1,7 @@
+/**
+ * Class that corresponds to the Vbox on the Game Page with the image of the kana and the text-field to the user answer.
+ */
+
 package fr.projectGroup.appkana.model;
 
 import fr.projectGroup.appkana.controller.GamePageController;
@@ -15,6 +19,13 @@ public class GuessPane extends VBox {
 
 
     // CONSTRUCTOR
+
+    /**
+     * The constructor of the GuessPane class.
+     *
+     * @param kana: the kana to guess.
+     * @param gamePageController: the JavaFX controller of the game page that the GuessPane is in.
+     */
     public GuessPane(Kana kana, GamePageController gamePageController) {
         this.setId("GuessPane");
         this.kana = kana;
@@ -24,12 +35,24 @@ public class GuessPane extends VBox {
 
 
     // GETTER
+
+    /**
+     * The getter of the 'textField' attribute.
+     *
+     * @return TextField: The textField where the user can write the syllable.
+     */
     public TextField getTextField() {
         return this.textField;
     }
 
 
     // METHODS
+
+    /**
+     * This method create and set configuration of the widget inside the GuessPane (VBox).
+     *
+     * @param gamePageController: the JavaFX controller of the game page that the GuessPane is in.
+     */
     private void buildWidget(GamePageController gamePageController) {
         this.getChildren().add(this.kana.getImage());
 
@@ -56,6 +79,12 @@ public class GuessPane extends VBox {
         this.getChildren().add(this.textField);
     }
 
+    /**
+     * This method check if the user response to all guessPane to know if the game is finish.
+     *
+     * @param gamePageController: the JavaFX controller of the game page that the GuessPane is in.
+     * @return boolean: true if the game is finish, false else.
+     */
     private boolean isGameFinished(GamePageController gamePageController) {
         Iterator<GuessPane> itGuessPane = gamePageController.getGuessPanesList().iterator();
 
