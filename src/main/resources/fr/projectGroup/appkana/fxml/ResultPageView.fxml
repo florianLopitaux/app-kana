@@ -18,8 +18,8 @@
     </Label>
 
     <HBox alignment="CENTER" spacing="35">
-        <Button fx:id="returnButton" onAction="#onReturnHomeButtonClick" text="Return Home"/>
-        <Button fx:id="retryButton" onAction="#onRetryButtonClick" text="Retry"/>
+        <Button onAction="#onReturnHomeButtonClick" text="Return Home"/>
+        <Button onAction="#onRetryButtonClick" text="Retry"/>
     </HBox>
 
 </fx:root>

@@ -1,17 +1,13 @@
 package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class ResultPageController extends VBox {
+public class ResultPageController extends VBox implements JavaFXControllable {
     // FIELDS
     private final Stage primaryStage;
     private final int nbKanaToGuess;
@@ -21,11 +17,6 @@ public class ResultPageController extends VBox {
     Label textResult;
     @FXML
     Label msgReward;
-
-    @FXML
-    Button returnButton;
-    @FXML
-    Button retryButton;
 
 
     // CONSTRUCTOR
@@ -37,15 +28,7 @@ public class ResultPageController extends VBox {
 
         final double percentage = ((float)playerScore / nbKanaToGuess) * 100;
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/ResultPageView.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        this.loadFXMLFile("Result");
 
         this.textResult.setText("Votre score : " + playerScore + " / " + nbKanaToGuess + "\n(" + percentage + "%)");
 
@@ -75,7 +58,7 @@ public class ResultPageController extends VBox {
     @FXML
     private void onReturnHomeButtonClick() {
         Scene homeScene = new Scene(new HomePageController(this.primaryStage));
-        homeScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/HomePageStyle.css").toExternalForm());
+        this.linkSceneWithCSSFile(homeScene, "Home");
 
         this.primaryStage.setScene(homeScene);
     }
@@ -83,7 +66,7 @@ public class ResultPageController extends VBox {
     @FXML
     private void onRetryButtonClick() {
         Scene retryGameScene = new Scene(new GamePageController(this.primaryStage, this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
-        retryGameScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/GamePageStyle.css").toExternalForm());
+        this.linkSceneWithCSSFile(retryGameScene, "Game");
 
         this.primaryStage.setScene(retryGameScene);
     }

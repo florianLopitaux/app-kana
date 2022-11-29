@@ -7,19 +7,17 @@ import fr.projectGroup.appkana.model.KanaType;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
-public class GamePageController extends VBox {
+public class GamePageController extends VBox implements JavaFXControllable {
     // FIELDS
     private final Stage primaryStage;
     private final Set<GuessPane> guessPanesList;
@@ -45,15 +43,7 @@ public class GamePageController extends VBox {
         this.playerScore = new SimpleIntegerProperty(0);
         this.playerScore.addListener(event -> this.scoreLabel.setText("Score : " + this.playerScore.get() + " / " + this.nbKanaToGuess));
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/GamePageView.fxml"));
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        this.loadFXMLFile("Game");
     }
 
 
@@ -70,7 +60,7 @@ public class GamePageController extends VBox {
     // METHODS
     public void finishGame() {
         Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
-        resultScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/ResultPageStyle.css").toExternalForm());
+        this.linkSceneWithCSSFile(resultScene, "Result");
 
         this.primaryStage.setScene(resultScene);
     }

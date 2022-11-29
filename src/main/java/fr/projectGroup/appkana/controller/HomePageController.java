@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePageController extends BorderPane {
+public class HomePageController extends BorderPane implements JavaFXControllable {
     // FIELDS
     private final Stage primaryStage;
 
@@ -34,16 +34,7 @@ public class HomePageController extends BorderPane {
     // CONSTRUCTOR
     public HomePageController(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fr/projectGroup/appkana/fxml/HomePageView.fxml"));
-
-        fxmlLoader.setRoot(this);
-        fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
+        this.loadFXMLFile("Home");
     }
 
 
@@ -93,7 +84,7 @@ public class HomePageController extends BorderPane {
         }
 
         Scene gameScene = new Scene(new GamePageController(this.primaryStage, (int) this.kanaCountSlider.getValue(), this.hiraganaCheckBox.isSelected(), this.katakanaCheckBox.isSelected()));
-        gameScene.getStylesheets().add(this.getClass().getResource("/fr/projectGroup/appkana/css/GamePageStyle.css").toExternalForm());
+        this.linkSceneWithCSSFile(gameScene, "Game");
 
         this.primaryStage.setScene(gameScene);
     }
