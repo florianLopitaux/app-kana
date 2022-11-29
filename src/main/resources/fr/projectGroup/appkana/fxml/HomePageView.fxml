@@ -16,7 +16,7 @@
          xmlns:fx="http://javafx.com/fxml"
          fx:id="rootPane" prefWidth="1280" prefHeight="720">
     <top>
-        <Label fx:id="welcomeTitleLabel" BorderPane.alignment="CENTER" text="KANA TRAINING"/>
+        <Label/>
     </top>
 
     <center>

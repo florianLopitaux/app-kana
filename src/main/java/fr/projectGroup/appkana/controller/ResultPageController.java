@@ -1,3 +1,9 @@
+/**
+ * This class is the JavaFX controller of the 'result' page of the application.
+ *
+ * @author FlorianLopitaux
+ */
+
 package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXML;
@@ -20,6 +26,15 @@ public class ResultPageController extends VBox implements JavaFXControllable {
 
 
     // CONSTRUCTOR
+    /**
+     * The constructor of the
+     *
+     * @param primaryStage
+     * @param playerScore
+     * @param nbKanaToGuess
+     * @param isHiraganaChecked
+     * @param isKatakanaChecked
+     */
     public ResultPageController(Stage primaryStage, int playerScore, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
         this.primaryStage = primaryStage;
         this.nbKanaToGuess = nbKanaToGuess;
