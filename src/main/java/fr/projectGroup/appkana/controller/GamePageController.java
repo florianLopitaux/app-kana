@@ -1,9 +1,6 @@
 package fr.projectGroup.appkana.controller;
 
-import fr.projectGroup.appkana.model.GuessPane;
-import fr.projectGroup.appkana.model.JapaneseSyllable;
-import fr.projectGroup.appkana.model.Kana;
-import fr.projectGroup.appkana.model.KanaType;
+import fr.projectGroup.appkana.core.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
@@ -16,6 +13,7 @@ import javafx.stage.Stage;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.util.Timer;
 
 public class GamePageController extends VBox implements JavaFXControllable {
     // FIELDS
@@ -25,8 +23,12 @@ public class GamePageController extends VBox implements JavaFXControllable {
     private final int nbKanaToGuess;
     private final boolean isHiraganaChecked, isKatakanaChecked;
 
+    private final Timer timer;
+
     @FXML
     Label scoreLabel;
+    @FXML
+    Label timerLabel;
 
     @FXML
     GridPane guessPaneContainer;
@@ -44,6 +46,9 @@ public class GamePageController extends VBox implements JavaFXControllable {
         this.playerScore.addListener(event -> this.scoreLabel.setText("Score : " + this.playerScore.get() + " / " + this.nbKanaToGuess));
 
         this.loadFXMLFile("Game");
+
+        this.timer = new Timer();
+        this.timer.scheduleAtFixedRate(new StopWatchTask(this.timerLabel), 0, 1000);
     }
 
 
@@ -59,6 +64,8 @@ public class GamePageController extends VBox implements JavaFXControllable {
 
     // METHODS
     public void finishGame() {
+        this.timer.cancel();
+
         Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
         this.linkSceneWithCSSFile(resultScene, "Result");
 

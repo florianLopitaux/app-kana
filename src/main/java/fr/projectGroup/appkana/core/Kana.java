@@ -4,7 +4,7 @@
  * @author florianLopitaux
  */
 
-package fr.projectGroup.appkana.model;
+package fr.projectGroup.appkana.core;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

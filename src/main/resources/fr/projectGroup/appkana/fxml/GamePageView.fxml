@@ -13,6 +13,7 @@
          fx:id="rootPane" prefWidth="1280" prefHeight="720" spacing="100" alignment="CENTER">
 
     <Label fx:id="scoreLabel"/>
+    <Label fx:id="timerLabel"/>
 
     <ScrollPane fitToWidth="true" fitToHeight="true">
         <padding>

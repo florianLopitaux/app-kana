@@ -2,7 +2,7 @@
  * Class that corresponds to the Vbox on the Game Page with the image of the kana and the text-field to the user answer.
  */
 
-package fr.projectGroup.appkana.model;
+package fr.projectGroup.appkana.core;
 
 import fr.projectGroup.appkana.controller.GamePageController;
 import javafx.scene.control.TextField;

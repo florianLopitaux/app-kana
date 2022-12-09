@@ -4,7 +4,7 @@
  * @author nathanReboul
  */
 
-package fr.projectGroup.appkana.model;
+package fr.projectGroup.appkana.core;
 
 public enum KanaType {
     /**

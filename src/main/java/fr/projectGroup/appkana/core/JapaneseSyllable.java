@@ -4,7 +4,7 @@
  * @author nathanReboul
  */
 
-package fr.projectGroup.appkana.model;
+package fr.projectGroup.appkana.core;
 
 public enum JapaneseSyllable {
     // FIELDS
@@ -30,7 +30,7 @@ public enum JapaneseSyllable {
         this.romanji = romanji;
     }
 
-    // GETTER
+    // GETTERS
     /**
      * Getter of the 'position' attribute.
      * @return Integer: the position of syllable on the japanese alphabetic order (named 'Gojuuon')
