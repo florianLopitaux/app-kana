@@ -1,7 +1,5 @@
 # App-kana
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 #### Bonjour et bienvenue, 
 Ici vous allez apprendre l'alphabet. 
 Cependant c'est l'alphabet syllabaire japonais, dit hiraganas.
