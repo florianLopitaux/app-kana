@@ -10,10 +10,14 @@
 
 <fx:root type="javafx.scene.layout.VBox"
          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-         fx:id="rootPane" prefWidth="1280" prefHeight="720" spacing="100" alignment="CENTER">
+         fx:id="rootPane" prefWidth="1280" prefHeight="720" spacing="20" alignment="CENTER">
 
     <Label fx:id="scoreLabel"/>
-    <Label fx:id="timerLabel"/>
+    <Label fx:id="timerLabel">
+        <padding>
+            <Insets bottom="80"/>
+        </padding>
+    </Label>
 
     <ScrollPane fitToWidth="true" fitToHeight="true">
         <padding>
