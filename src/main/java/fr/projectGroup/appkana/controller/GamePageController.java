@@ -18,6 +18,8 @@ import java.util.Timer;
 
 public class GamePageController extends VBox implements JavaFXControllable {
     // FIELDS
+    private String playerName;
+
     private final Stage primaryStage;
     private final Set<GuessPane> guessPanesList;
     private final IntegerProperty playerScore;
@@ -65,11 +67,16 @@ public class GamePageController extends VBox implements JavaFXControllable {
     }
 
 
+    // SETTER
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
     // METHODS
     public void finishGame() {
         this.timer.cancel();
 
-        Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked, this.stopWatchTask.getTime()));
+        final Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked, this.stopWatchTask.getTime(), this.playerName));
         this.linkSceneWithCSSFile(resultScene, "Result");
 
         this.primaryStage.setScene(resultScene);

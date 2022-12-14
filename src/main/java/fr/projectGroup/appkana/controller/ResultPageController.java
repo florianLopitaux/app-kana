@@ -40,15 +40,16 @@ public class ResultPageController extends VBox implements JavaFXControllable {
      * @param isHiraganaChecked: if the player had enabled the hiragana.
      * @param isKatakanaChecked: if the player had enabled the katakana.
      * @param time: the time of the player in seconds.
+     * @param playerName: The name of the player who played.
      */
-    public ResultPageController(Stage primaryStage, int score, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked, int time) {
+    public ResultPageController(Stage primaryStage, int score, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked, int time, String playerName) {
         this.primaryStage = primaryStage;
         this.nbKanaToGuess = nbKanaToGuess;
         this.isHiraganaChecked = isHiraganaChecked;
         this.isKatakanaChecked = isKatakanaChecked;
 
         final double percentage = Math.round(((float)score / nbKanaToGuess) * 100);
-        FileUtils.registerNewScore(new PlayerScore("Stonwalff", this.computePlayerScore((float)score / nbKanaToGuess, time)));
+        FileUtils.registerNewScore(new PlayerScore(playerName, this.computePlayerScore((float)score / nbKanaToGuess, time)));
         System.out.println(FileUtils.readAllScores());
 
         this.loadFXMLFile("Result");
@@ -68,7 +69,6 @@ public class ResultPageController extends VBox implements JavaFXControllable {
 
 
     // METHODS
-
     /**
      * This method is automatically called by JavaFX and initialize or configure some things of the result page.
      */

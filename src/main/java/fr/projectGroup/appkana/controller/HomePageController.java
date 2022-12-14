@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -16,6 +17,9 @@ import java.io.IOException;
 public class HomePageController extends BorderPane implements JavaFXControllable {
     // FIELDS
     private final Stage primaryStage;
+
+    @FXML
+    private TextField playerNameTextField;
 
     @FXML
     private CheckBox hiraganaCheckBox;
@@ -83,7 +87,10 @@ public class HomePageController extends BorderPane implements JavaFXControllable
             errorButtonMessage.setText("");
         }
 
-        Scene gameScene = new Scene(new GamePageController(this.primaryStage, (int) this.kanaCountSlider.getValue(), this.hiraganaCheckBox.isSelected(), this.katakanaCheckBox.isSelected()));
+        final GamePageController gamePageController = new GamePageController(this.primaryStage, (int) this.kanaCountSlider.getValue(), this.hiraganaCheckBox.isSelected(), this.katakanaCheckBox.isSelected());
+        gamePageController.setPlayerName(this.playerNameTextField.getText());
+
+        final Scene gameScene = new Scene(gamePageController);
         this.linkSceneWithCSSFile(gameScene, "Game");
 
         this.primaryStage.setScene(gameScene);
