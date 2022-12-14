@@ -5,13 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileUtils {
-    public static void registerNewScore(PlayerScore newScore) throws IOException {
-        final PrintWriter writer = new PrintWriter(new FileWriter("ScoresFile.txt"));
+    public static void registerNewScore(PlayerScore newScore) {
+        try {
+            final PrintWriter writer = new PrintWriter(new FileWriter("ScoresFile.txt"));
 
-        writer.println("");
-        writer.println(newScore.getName() + " " + newScore.getScore());
+            writer.println("");
+            writer.println(newScore.getName() + " " + newScore.getScore());
 
-        writer.close();
+            writer.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static List<PlayerScore> readAllScores() throws IOException {

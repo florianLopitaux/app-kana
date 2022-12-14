@@ -6,6 +6,7 @@
 
 package fr.projectGroup.appkana.controller;
 
+import fr.projectGroup.appkana.core.FileUtils;
 import fr.projectGroup.appkana.core.PlayerScore;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -13,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class ResultPageController extends VBox implements JavaFXControllable {
     // FIELDS
@@ -45,7 +48,7 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.isKatakanaChecked = isKatakanaChecked;
 
         final double percentage = Math.round(((float)score / nbKanaToGuess) * 100);
-        final PlayerScore playerScore = new PlayerScore("", this.computePlayerScore(percentage, time));
+        FileUtils.registerNewScore(new PlayerScore("Stonwalff", this.computePlayerScore(percentage, time)));
 
         this.loadFXMLFile("Result");
 
