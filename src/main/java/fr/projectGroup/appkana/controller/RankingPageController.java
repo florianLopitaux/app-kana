@@ -8,6 +8,9 @@ public class RankingPageController extends VBox implements JavaFXControllable {
     // FIELDS
     Stage primaryStage;
 
+    @FXML
+    private VBox rankingContainer;
+
 
     // CONSTRUCTOR
     public RankingPageController(Stage primaryStage) {
