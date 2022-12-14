@@ -49,6 +49,7 @@ public class ResultPageController extends VBox implements JavaFXControllable {
 
         final double percentage = Math.round(((float)score / nbKanaToGuess) * 100);
         FileUtils.registerNewScore(new PlayerScore("Stonwalff", this.computePlayerScore(percentage, time)));
+        System.out.println(FileUtils.readAllScores());
 
         this.loadFXMLFile("Result");
 

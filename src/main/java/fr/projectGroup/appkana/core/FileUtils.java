@@ -6,31 +6,62 @@ import java.util.List;
 
 public class FileUtils {
     public static void registerNewScore(PlayerScore newScore) {
+        final List<String> oldContent = readLines();
+
         try {
-            final PrintWriter writer = new PrintWriter(new FileWriter("ScoresFile.txt"));
+            final BufferedWriter BuffWriter = new BufferedWriter(new FileWriter("ScoresFile.txt"));
 
-            writer.println("");
-            writer.println(newScore.getName() + " " + newScore.getScore());
+            for (String currentLine : oldContent) {
+                BuffWriter.write(currentLine + "\n");
+            }
 
-            writer.close();
+            BuffWriter.write(newScore.getName() + " " + newScore.getScore());
+
+            BuffWriter.close();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static List<PlayerScore> readAllScores() throws IOException {
+    public static List<PlayerScore> readAllScores() {
         final List<PlayerScore> playersScore = new ArrayList<>();
-        final BufferedReader reader = new BufferedReader(new FileReader("ScoresFile.txt"));
-        String line;
 
-        while ((line = reader.readLine()) != null) {
-            final String name = line.split(" ")[0];
-            final float points = Float.parseFloat(line.split(" ")[1]);
+        try {
+            final BufferedReader reader = new BufferedReader(new FileReader("ScoresFile.txt"));
+            String line;
 
-            playersScore.add(new PlayerScore(name, points));
+            while ((line = reader.readLine()) != null) {
+                final String[] splitLine = line.split(" ");
+                System.out.println(splitLine.length);
+
+                playersScore.add(new PlayerScore(splitLine[0], Double.parseDouble(splitLine[1])));
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
-        reader.close();
         return playersScore;
+    }
+
+    private static List<String> readLines() {
+        List<String> lines = new ArrayList<>();
+
+        try {
+            final BufferedReader reader = new BufferedReader(new FileReader("ScoresFile.txt"));
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                lines.add(currentLine);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return lines;
     }
 }
