@@ -1,5 +1,7 @@
 package fr.projectGroup.appkana.core;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class PlayerScore implements Comparable<PlayerScore> {
@@ -48,5 +50,15 @@ public class PlayerScore implements Comparable<PlayerScore> {
     @Override
     public int compareTo(PlayerScore other) {
         return Double.compare(this.score, other.getScore());
+    }
+
+    public static void BubbleSort(List<PlayerScore> playerScoreList) {
+        for (int i = 0; i < playerScoreList.size(); ++i) {
+            for (int j = 0; j < playerScoreList.size() - i - 1; ++j) {
+                if (playerScoreList.get(j).getScore() > playerScoreList.get(j + 1).getScore()) {
+                    Collections.swap(playerScoreList, j, j + 1);
+                }
+            }
+        }
     }
 }
