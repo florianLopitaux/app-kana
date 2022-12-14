@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.VBox?>
+
 <fx:root type="javafx.scene.layout.VBox"
          xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-         prefHeight="1280" prefWidth="720">
+         prefWidth="1280" prefHeight="720" alignment="CENTER" spacing="70">
 
-    <Label text="Player Score Ranking"/>
+    <Label fx:id="titlePageLabel" text="Top 10 - Player Score Ranking"/>
 
-    <ScrollPane>
-        <VBox fx:id="rankingContainer">
-
-        </VBox>
-    </ScrollPane>
+    <VBox fx:id="rankingContainer" alignment="CENTER" spacing="15"/>
 </fx:root>

@@ -1,9 +1,16 @@
 package fr.projectGroup.appkana.controller;
 
+import fr.projectGroup.appkana.core.FileUtils;
+import fr.projectGroup.appkana.core.PlayerScore;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
+import java.util.Collections;
+import java.util.List;
 
 public class RankingPageController extends VBox implements JavaFXControllable {
     // FIELDS
@@ -30,5 +37,24 @@ public class RankingPageController extends VBox implements JavaFXControllable {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false))));
+
+        this.generateAllScore();
+    }
+
+    private void generateAllScore() {
+        final List<PlayerScore> playerScoreList = FileUtils.readAllScores();
+        Collections.sort(playerScoreList);
+
+        for (int i = 1; i <= 10; ++i) {
+            final HBox container = new HBox();
+            container.setAlignment(Pos.CENTER);
+            container.spacingProperty().set(20);
+
+            container.getChildren().add(new Label(String.valueOf(i)));
+            container.getChildren().add(new Label(playerScoreList.get(playerScoreList.size() - i).getName()));
+            container.getChildren().add(new Label(playerScoreList.get(playerScoreList.size() - i).getScore() + " pts"));
+
+            this.rankingContainer.getChildren().add(container);
+        }
     }
 }

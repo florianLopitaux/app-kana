@@ -2,10 +2,29 @@ package fr.projectGroup.appkana.core;
 
 import java.util.Objects;
 
-/**
- * @param name FIELDS
- */
-public record PlayerScore(String name, double score) {
+public class PlayerScore implements Comparable<PlayerScore> {
+    // FIELDS
+    private String name;
+    private double score;
+
+
+    // CONSTURCTOR
+    public PlayerScore(String name, double score) {
+        this.name = name;
+        this.score = score;
+    }
+
+
+    // GETTERS
+    public String getName() {
+        return this.name;
+    }
+
+    public double getScore() {
+        return this.score;
+    }
+
+
     // METHODS
     @Override
     public String toString() {
@@ -24,5 +43,10 @@ public record PlayerScore(String name, double score) {
 
         final PlayerScore other = (PlayerScore) o;
         return Double.compare(other.score, this.score) == 0 && Objects.equals(this.name, other.name);
+    }
+
+    @Override
+    public int compareTo(PlayerScore other) {
+        return Double.compare(this.score, other.getScore());
     }
 }

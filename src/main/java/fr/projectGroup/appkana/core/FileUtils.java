@@ -15,7 +15,7 @@ public class FileUtils {
                 BuffWriter.write(currentLine + "\n");
             }
 
-            BuffWriter.write(newScore.name() + " " + newScore.score());
+            BuffWriter.write(newScore.getName() + " " + newScore.getScore());
 
             BuffWriter.close();
 
