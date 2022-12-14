@@ -98,7 +98,7 @@ public class ResultPageController extends VBox implements JavaFXControllable {
      */
     @FXML
     private void onRetryButtonClick() {
-        Scene retryGameScene = new Scene(new GamePageController(this.primaryStage, this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
+        final Scene retryGameScene = new Scene(new GamePageController(this.primaryStage, this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
         this.linkSceneWithCSSFile(retryGameScene, "Game");
 
         this.primaryStage.setScene(retryGameScene);
@@ -106,7 +106,10 @@ public class ResultPageController extends VBox implements JavaFXControllable {
 
     @FXML
     private void onSeeScoreRanking() {
-        return;
+        final Scene rankingPageScene = new Scene(new RankingPageController(this.primaryStage));
+        this.linkSceneWithCSSFile(rankingPageScene, "Ranking");
+
+        this.primaryStage.setScene(rankingPageScene);
     }
 
     private float computePlayerScore(double percentage, int time) {
