@@ -104,6 +104,11 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.primaryStage.setScene(retryGameScene);
     }
 
+    @FXML
+    private void onSeeScoreRanking() {
+        return;
+    }
+
     private float computePlayerScore(double percentage, int time) {
         return Math.round((percentage * ((float)this.nbKanaToGuess / MAX_KANA_TO_GUESS) + 1f/time) * 10000) / 100f;
     }

@@ -22,4 +22,6 @@
         <Button onAction="#onRetryButtonClick" text="Retry"/>
     </HBox>
 
+    <Button onAction="#onSeeScoreRanking" text="See score ranking"/>
+
 </fx:root>
