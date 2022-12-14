@@ -33,7 +33,6 @@ public class FileUtils {
 
             while ((line = reader.readLine()) != null) {
                 final String[] splitLine = line.split(" ");
-                System.out.println(splitLine.length);
 
                 playersScore.add(new PlayerScore(splitLine[0], Double.parseDouble(splitLine[1])));
             }

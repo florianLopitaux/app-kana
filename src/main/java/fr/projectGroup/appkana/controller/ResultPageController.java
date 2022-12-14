@@ -49,8 +49,8 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.isKatakanaChecked = isKatakanaChecked;
 
         final double percentage = Math.round(((float)score / nbKanaToGuess) * 100);
-        FileUtils.registerNewScore(new PlayerScore(playerName, this.computePlayerScore((float)score / nbKanaToGuess, time)));
-        System.out.println(FileUtils.readAllScores());
+        FileUtils.registerNewScore(new PlayerScore(playerName, this.computePlayerScore((double)score / nbKanaToGuess, time)));
+        System.out.println(this.computePlayerScore((double)score / nbKanaToGuess, time));
 
         this.loadFXMLFile("Result");
 
@@ -112,7 +112,7 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.primaryStage.setScene(rankingPageScene);
     }
 
-    private float computePlayerScore(double percentage, int time) {
-        return Math.round((percentage * ((float)this.nbKanaToGuess / MAX_KANA_TO_GUESS) + 1f/time) * 10000) / 100f;
+    private double computePlayerScore(double percentage, int time) {
+        return (double)Math.round((percentage * ((double)this.nbKanaToGuess / MAX_KANA_TO_GUESS) + 0.5/time) * 10000) / 100;
     }
 }
