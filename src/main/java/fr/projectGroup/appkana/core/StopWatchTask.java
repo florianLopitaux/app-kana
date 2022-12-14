@@ -22,6 +22,11 @@ public class StopWatchTask extends TimerTask {
     }
 
 
+    // METHODS
+    public int getTime() {
+        return this.minutes * 60 + this.seconds;
+    }
+
     @Override
     public void run() {
         this.seconds++;

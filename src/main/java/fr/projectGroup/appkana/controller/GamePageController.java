@@ -24,6 +24,7 @@ public class GamePageController extends VBox implements JavaFXControllable {
     private final boolean isHiraganaChecked, isKatakanaChecked;
 
     private final Timer timer;
+    private final StopWatchTask stopWatchTask;
 
     @FXML
     Label scoreLabel;
@@ -47,8 +48,9 @@ public class GamePageController extends VBox implements JavaFXControllable {
 
         this.loadFXMLFile("Game");
 
+        this.stopWatchTask = new StopWatchTask(this.timerLabel);
         this.timer = new Timer();
-        this.timer.scheduleAtFixedRate(new StopWatchTask(this.timerLabel), 0, 1000);
+        this.timer.scheduleAtFixedRate(stopWatchTask, 0, 1000);
     }
 
 
@@ -66,7 +68,7 @@ public class GamePageController extends VBox implements JavaFXControllable {
     public void finishGame() {
         this.timer.cancel();
 
-        Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked));
+        Scene resultScene = new Scene(new ResultPageController(primaryStage, this.playerScore.get(), this.nbKanaToGuess, this.isHiraganaChecked, this.isKatakanaChecked, this.stopWatchTask.getTime()));
         this.linkSceneWithCSSFile(resultScene, "Result");
 
         this.primaryStage.setScene(resultScene);

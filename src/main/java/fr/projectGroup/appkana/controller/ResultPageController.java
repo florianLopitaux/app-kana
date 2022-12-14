@@ -6,6 +6,7 @@
 
 package fr.projectGroup.appkana.controller;
 
+import fr.projectGroup.appkana.core.PlayerScore;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 public class ResultPageController extends VBox implements JavaFXControllable {
     // FIELDS
+    private final static int MAX_KANA_TO_GUESS = 92;
     private final Stage primaryStage;
     private final int nbKanaToGuess;
     private final boolean isHiraganaChecked, isKatakanaChecked;
@@ -30,22 +32,24 @@ public class ResultPageController extends VBox implements JavaFXControllable {
      * The constructor of the ResultPageController class.
      *
      * @param primaryStage: The stage that corresponds to the window.
-     * @param playerScore: The score of the player that he does on the game.
+     * @param score: The score of the player that he does on the game.
      * @param nbKanaToGuess: The number of kana in the game page that the player had to guess.
      * @param isHiraganaChecked: if the player had enabled the hiragana.
-     * @param isKatakanaChecked if the player had enabled the katakana.
+     * @param isKatakanaChecked: if the player had enabled the katakana.
+     * @param time: the time of the player in seconds.
      */
-    public ResultPageController(Stage primaryStage, int playerScore, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
+    public ResultPageController(Stage primaryStage, int score, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked, int time) {
         this.primaryStage = primaryStage;
         this.nbKanaToGuess = nbKanaToGuess;
         this.isHiraganaChecked = isHiraganaChecked;
         this.isKatakanaChecked = isKatakanaChecked;
 
-        final double percentage = Math.round(((float)playerScore / nbKanaToGuess) * 100);
+        final double percentage = Math.round(((float)score / nbKanaToGuess) * 100);
+        final PlayerScore playerScore = new PlayerScore("", this.computePlayerScore(percentage, time));
 
         this.loadFXMLFile("Result");
 
-        this.textResult.setText("Votre score : " + playerScore + " / " + nbKanaToGuess + "\n(" + percentage + "%)");
+        this.textResult.setText("Votre score : " + score + " / " + nbKanaToGuess + "\n(" + percentage + "%) en " + time + "s");
 
         if (percentage <= 25) {
             msgReward.setText("Tu n'es qu'au début de ton apprentissage :(");
@@ -94,5 +98,9 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.linkSceneWithCSSFile(retryGameScene, "Game");
 
         this.primaryStage.setScene(retryGameScene);
+    }
+
+    private double computePlayerScore(double percentage, int time) {
+        return Math.round((percentage * ((float)this.nbKanaToGuess / MAX_KANA_TO_GUESS) + 1f/time) * 10000) / 100f;
     }
 }
