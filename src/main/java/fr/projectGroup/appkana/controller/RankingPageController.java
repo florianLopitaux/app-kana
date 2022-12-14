@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import java.util.Collections;
 import java.util.List;
 
-public class RankingPageController extends VBox implements JavaFXControllable {
+public class RankingPageController extends AnchorPane implements JavaFXControllable {
     // FIELDS
     Stage primaryStage;
 
@@ -39,6 +39,11 @@ public class RankingPageController extends VBox implements JavaFXControllable {
                 new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false))));
 
         this.generateAllScore();
+    }
+
+    @FXML
+    private void onBackHome() {
+
     }
 
     private void generateAllScore() {
