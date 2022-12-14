@@ -4,6 +4,7 @@ import fr.projectGroup.appkana.core.FileUtils;
 import fr.projectGroup.appkana.core.PlayerScore;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -43,7 +44,10 @@ public class RankingPageController extends AnchorPane implements JavaFXControlla
 
     @FXML
     private void onBackHome() {
+        final Scene homeScene = new Scene(new HomePageController(this.primaryStage));
+        this.linkSceneWithCSSFile(homeScene, "Home");
 
+        this.primaryStage.setScene(homeScene);
     }
 
     private void generateAllScore() {
