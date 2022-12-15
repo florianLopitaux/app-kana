@@ -1,7 +1,6 @@
 package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
@@ -12,8 +11,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
+/**
+ * This class is the JavaFX controller of the 'home' page of the application.
+ */
 public class HomePageController extends BorderPane implements JavaFXControllable {
     // FIELDS
     private final Stage primaryStage;
@@ -36,6 +37,12 @@ public class HomePageController extends BorderPane implements JavaFXControllable
 
 
     // CONSTRUCTOR
+
+    /**
+     * The constructor of the HomePageController class.
+     *
+     * @param primaryStage the stage of the application to change the current scene.
+     */
     public HomePageController(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.loadFXMLFile("Home");
@@ -43,6 +50,9 @@ public class HomePageController extends BorderPane implements JavaFXControllable
 
 
     // METHODS
+    /**
+     * This method is automatically called by JavaFX library and initialize or configure some things of the home page.
+     */
     @FXML
     private void initialize() {
         // Background image
@@ -76,6 +86,9 @@ public class HomePageController extends BorderPane implements JavaFXControllable
         });
     }
 
+    /**
+     * This method is button function of the 'StartGame' button which launch the game with the correct configuration selected by the user.
+     */
     @FXML
     private void onStartGameButtonClick() {
         System.out.println("click on button !");
@@ -96,6 +109,11 @@ public class HomePageController extends BorderPane implements JavaFXControllable
         this.primaryStage.setScene(gameScene);
     }
 
+    /**
+     * This method is the method called to update the max value of the slider on the home page when we selected a checkbox.
+     *
+     * @param isChecked the boolean value to know if the checkbox event is an activation or a deselection.
+     */
     private void changeMaxSlider(boolean isChecked) {
         if (isChecked) {
             this.kanaCountSlider.setMax(this.kanaCountSlider.getMax() + 46);

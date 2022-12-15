@@ -43,7 +43,7 @@ public class GamePageController extends VBox implements JavaFXControllable {
 
     // CONSTRUCTOR
     /**
-     * The constructor of the ResultPageController class.
+     * The constructor of the GamePageController class.
      *
      * @param primaryStage the stage of the application launched.
      * @param nbKanaToGuess the number of kana to guess choose on the slider of the home page.
