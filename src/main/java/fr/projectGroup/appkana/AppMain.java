@@ -6,6 +6,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+/**
+ * This class is the main class that we have to execute to launch the application.
+ */
 public class AppMain extends Application {
     /**
      * This method is an override from the Application class of the JavaFX library.
