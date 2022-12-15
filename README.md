@@ -14,6 +14,8 @@ langue est très restraint du par la difficulté de la différence de l'alphabet
 connaissances en vous amusant ! Rejoignez notre communauté de joueurs, et défiez vos amis.
 Un jeu qui vous initiera à la langue du Japon.
 
+**Pour lancer l'application, vous devez executez le fichier 'AppMain.java'.**
+
 ## Technologies utilisées
 
 - Librairie d'interface graphique : [JavaFX](https://openjfx.io/)
