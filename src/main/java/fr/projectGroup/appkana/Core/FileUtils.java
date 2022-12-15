@@ -1,4 +1,4 @@
-package fr.projectGroup.appkana.core;
+package fr.projectGroup.appkana.Core;
 
 import java.io.*;
 import java.util.ArrayList;

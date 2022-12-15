@@ -1,4 +1,4 @@
-package fr.projectGroup.appkana.core;
+package fr.projectGroup.appkana.Core;
 
 import java.util.Collections;
 import java.util.List;

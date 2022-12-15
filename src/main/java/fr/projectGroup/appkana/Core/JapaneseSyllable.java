@@ -1,4 +1,4 @@
-package fr.projectGroup.appkana.core;
+package fr.projectGroup.appkana.Core;
 
 /**
  * Enumerate which contains all japanese syllable with parameters (alphabetic order and syllable translate in romanji)

@@ -1,4 +1,4 @@
-package fr.projectGroup.appkana.core;
+package fr.projectGroup.appkana.Core;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

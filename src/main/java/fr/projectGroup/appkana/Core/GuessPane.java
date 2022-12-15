@@ -1,6 +1,6 @@
-package fr.projectGroup.appkana.core;
+package fr.projectGroup.appkana.Core;
 
-import fr.projectGroup.appkana.controller.GamePageController;
+import fr.projectGroup.appkana.Controller.GamePageController;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;

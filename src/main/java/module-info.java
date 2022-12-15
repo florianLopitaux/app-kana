@@ -5,6 +5,6 @@ module com.example.appkana {
 
     opens fr.projectGroup.appkana to javafx.fxml;
     exports fr.projectGroup.appkana;
-    exports fr.projectGroup.appkana.controller;
-    opens fr.projectGroup.appkana.controller to javafx.fxml;
+    exports fr.projectGroup.appkana.Controller;
+    opens fr.projectGroup.appkana.Controller to javafx.fxml;
 }

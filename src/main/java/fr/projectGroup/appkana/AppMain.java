@@ -1,6 +1,6 @@
 package fr.projectGroup.appkana;
 
-import fr.projectGroup.appkana.controller.HomePageController;
+import fr.projectGroup.appkana.Controller.HomePageController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

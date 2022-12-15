@@ -1,6 +1,6 @@
-package fr.projectGroup.appkana.controller;
+package fr.projectGroup.appkana.Controller;
 
-import fr.projectGroup.appkana.core.*;
+import fr.projectGroup.appkana.Core.*;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;

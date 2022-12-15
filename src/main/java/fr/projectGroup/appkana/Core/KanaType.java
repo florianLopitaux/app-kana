@@ -1,4 +1,4 @@
-package fr.projectGroup.appkana.core;
+package fr.projectGroup.appkana.Core;
 
 /**
  * Enumerate which contains the two type of Kana.

@@ -1,4 +1,4 @@
-package fr.projectGroup.appkana.core;
+package fr.projectGroup.appkana.Core;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;

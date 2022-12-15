@@ -1,7 +1,7 @@
-package fr.projectGroup.appkana.controller;
+package fr.projectGroup.appkana.Controller;
 
-import fr.projectGroup.appkana.core.FileUtils;
-import fr.projectGroup.appkana.core.PlayerScore;
+import fr.projectGroup.appkana.Core.FileUtils;
+import fr.projectGroup.appkana.Core.PlayerScore;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
