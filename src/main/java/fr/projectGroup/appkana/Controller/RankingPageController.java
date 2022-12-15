@@ -70,7 +70,11 @@ public class RankingPageController extends AnchorPane implements JavaFXControlla
      */
     private void generateAllScore() {
         final List<PlayerScore> playerScoreList = FileUtils.readAllScores();
+
         Collections.sort(playerScoreList);
+
+        // if we want to use our implementation of sort algorithm but not as efficient as with comparable interface.
+        // PlayerScore.BubbleSort(playerScoreList);
 
         for (int i = 1; i <= 10; ++i) {
             final HBox container = new HBox();
