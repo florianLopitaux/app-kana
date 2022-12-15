@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * This class is the JavaFX controller of the 'result' page of the application.
+ * This class is the JavaFX controller of the 'ranking' page of the application.
  */
 public class RankingPageController extends AnchorPane implements JavaFXControllable {
     // FIELDS

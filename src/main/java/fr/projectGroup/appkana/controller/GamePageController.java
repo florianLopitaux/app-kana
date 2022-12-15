@@ -10,12 +10,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 import java.util.Timer;
 
+
+/**
+ * This class is the JavaFX controller of the 'game' page of the application.
+ */
 public class GamePageController extends VBox implements JavaFXControllable {
     // FIELDS
     private String playerName;
@@ -39,6 +42,14 @@ public class GamePageController extends VBox implements JavaFXControllable {
 
 
     // CONSTRUCTOR
+    /**
+     * The constructor of the ResultPageController class.
+     *
+     * @param primaryStage the stage of the application launched.
+     * @param nbKanaToGuess the number of kana to guess choose on the slider of the home page.
+     * @param isHiraganaChecked the boolean value of the checkbox to know if we display hiragana characters.
+     * @param isKatakanaChecked the boolean value of the checkbox to know if we display katakana characters.
+     */
     public GamePageController(Stage primaryStage, int nbKanaToGuess, boolean isHiraganaChecked, boolean isKatakanaChecked) {
         this.primaryStage = primaryStage;
         this.guessPanesList = new HashSet<>();
@@ -58,21 +69,41 @@ public class GamePageController extends VBox implements JavaFXControllable {
 
 
     // GETTERS
+    /**
+     * This method is the getter of guessPanesList attribute.
+     *
+     * @return the Set of all guess pane that the player has to guess.
+     */
     public Set<GuessPane> getGuessPanesList() {
         return this.guessPanesList;
     }
 
+    /**
+     * This method is the getter of the playerScore attribute.
+     *
+     * @return the number of kana that the player correctly found.
+     */
     public IntegerProperty getPlayerScore() {
         return this.playerScore;
     }
 
 
     // SETTER
+    /**
+     * This method is the setter of the playerName attribute.
+     *
+     * @param playerName the name of the player that he filled on the home page before.
+     */
     public void setPlayerName(String playerName) {
         this.playerName = playerName;
     }
 
+
     // METHODS
+    /**
+     * This method is called when the player finished to answer of all guess pane.
+     * It switched the page and called the result page in passed all data of the game.
+     */
     public void finishGame() {
         this.timer.cancel();
 
@@ -82,6 +113,9 @@ public class GamePageController extends VBox implements JavaFXControllable {
         this.primaryStage.setScene(resultScene);
     }
 
+    /**
+     * This method is automatically called by JavaFX library and initialize or configure some things of the game page.
+     */
     @FXML
     private void initialize() {
         this.scoreLabel.setText("Score : " + this.playerScore.get() + " / " + this.nbKanaToGuess);
@@ -101,6 +135,11 @@ public class GamePageController extends VBox implements JavaFXControllable {
         }
     }
 
+    /**
+     * This method generate a new Kana object to build a guess pane on the initialize method to build the guess pane of the game.
+     *
+     * @return A new Kana object. Hiragana, katakana or both according to the checkbox selected.
+     */
     private Kana generateNewKana() {
         Random rnd = new Random();
         KanaType currentKanaType = null;
