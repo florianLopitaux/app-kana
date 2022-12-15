@@ -1,9 +1,3 @@
-/**
- * This class is the JavaFX controller of the 'result' page of the application.
- *
- * @author FlorianLopitaux
- */
-
 package fr.projectGroup.appkana.controller;
 
 import fr.projectGroup.appkana.core.FileUtils;
@@ -15,8 +9,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
+/**
+ * This class is the JavaFX controller of the 'result' page of the application.
+ */
 public class ResultPageController extends VBox implements JavaFXControllable {
     // FIELDS
     private final static int MAX_KANA_TO_GUESS = 92;
@@ -70,7 +66,7 @@ public class ResultPageController extends VBox implements JavaFXControllable {
 
     // METHODS
     /**
-     * This method is automatically called by JavaFX and initialize or configure some things of the result page.
+     * This method is automatically called by JavaFX library and initialize or configure some things of the result page.
      */
     @FXML
     private void initialize() {
@@ -104,6 +100,9 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.primaryStage.setScene(retryGameScene);
     }
 
+    /**
+     * This method is the button function of the 'seeScoreRanking' button that uses to navigate on the Ranking page.
+     */
     @FXML
     private void onSeeScoreRanking() {
         final Scene rankingPageScene = new Scene(new RankingPageController(this.primaryStage));
@@ -112,6 +111,14 @@ public class ResultPageController extends VBox implements JavaFXControllable {
         this.primaryStage.setScene(rankingPageScene);
     }
 
+    /**
+     * This method compute the final score of the player which take into account the time, the success percentage and the number of Kana to guess.
+     *
+     * @param percentage the success percentage on the format [0 ; 1].
+     * @param time the time passed of the game.
+     *
+     * @return THe final score after compute with the custom mathematical formula
+     */
     private double computePlayerScore(double percentage, int time) {
         return (double)Math.round((percentage * ((double)this.nbKanaToGuess / MAX_KANA_TO_GUESS) + 0.5/time) * 10000) / 100;
     }

@@ -1,7 +1,3 @@
-/**
- * This interface contains some methods that use by all JavaFX controller class.
- */
-
 package fr.projectGroup.appkana.controller;
 
 import javafx.fxml.FXMLLoader;
@@ -9,7 +5,11 @@ import javafx.scene.Scene;
 
 import java.io.IOException;
 
+/**
+ * This interface contains some default methods that use by all JavaFX controller class.
+ */
 public interface JavaFXControllable {
+
     /**
      * This method load the FXML file associated to the page that we want loading.
      *
