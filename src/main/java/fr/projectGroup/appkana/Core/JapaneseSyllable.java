@@ -23,7 +23,6 @@ public enum JapaneseSyllable {
 
 
     // CONSTRUCTOR
-
     /**
      * This constructor instantiates the fields of to enumerate
      *
