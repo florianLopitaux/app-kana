@@ -1,15 +1,18 @@
 # App-kana
 
-#### Bonjour et bienvenue, 
-Ici vous allez apprendre l'alphabet. 
-Cependant c'est l'alphabet syllabaire japonais, dit hiraganas.
-Et vous allez voir il n'est pas si difficile de s'en approprier sa calligraphie.
-
-[image du jeu]
+![homePageImage](https://github.com/florianLopitaux/app-kana/blob/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/bg_appkana.png)
 
 # A propos du jeu
 
-App-kana, c'est LE jeu de quiz des hiraganas qui vous permet de développer vos connaissances en vous amusant ! Rejoignez notre communauté de joueurs, et défiez vos amis. Un jeu qui vous initiera à la langue du Japon.
+Bonjour et bienvenue sur l'application **KanaTraining**,
+de nombreuses personnes fan de culture japonaises rèvent de parler japonais cependant l'accès à l'apprentissage de la
+langue est très restraint du par la difficulté de la différence de l'alphabet.
+
+**Mais ne vous en faites pas !** Aujourd'hui est venu l'heure de briser ces chaînes  qui vous retiennent.
+
+**KANA TRAINING**, c'est LE jeu de quiz des kana (aplhabet syllabaire japonais) qui vous permet de développer vos
+connaissances en vous amusant ! Rejoignez notre communauté de joueurs, et défiez vos amis.
+Un jeu qui vous initiera à la langue du Japon.
 
 ## Technologies utilisées
 
@@ -22,9 +25,12 @@ App-kana, c'est LE jeu de quiz des hiraganas qui vous permet de développer vos 
 
 ## Liste des ressources externes
 
-### Logiciels
+### JavaDoc
 
-##### Logiciels génériques de développement informatique
+La Documentation java est disponible [juste ici](https://florianlopitaux.github.io/app-kana/JavaDoc) afin de plus
+facilement comprendre le code de notre application.
+
+##### Logiciels utilisées pour le développement
 
 - Editeur de code : [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=linux)
 - Génération de l'alphabet : [Canva](https://www.canva.com)
@@ -41,12 +47,12 @@ App-kana, c'est LE jeu de quiz des hiraganas qui vous permet de développer vos 
 
 ## Inspirations
 
-## jeux d'arcade
+### jeux d'arcade
 
 Pour le design du dojo :     
 - [Fruit Ninja](https://fr.wikipedia.org/wiki/Fruit_Ninja) par Halfbrick Studios
 
-## jeux de quizz
+### jeux de quizz
 
 Pour le système de question :  
 - [QuizUp](https://fr.wikipedia.org/wiki/QuizUp) par Plain Vanilla Games  
