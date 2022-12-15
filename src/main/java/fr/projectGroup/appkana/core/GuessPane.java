@@ -1,7 +1,3 @@
-/**
- * Class that corresponds to the Vbox on the Game Page with the image of the kana and the text-field to the user answer.
- */
-
 package fr.projectGroup.appkana.core;
 
 import fr.projectGroup.appkana.controller.GamePageController;
@@ -12,6 +8,9 @@ import javafx.scene.layout.VBox;
 import java.util.Iterator;
 
 
+/**
+ * This class that corresponds to the Vbox on the Game Page with the image of the kana and the text-field to the user answer.
+ */
 public class GuessPane extends VBox {
     // FIELDS
     private final Kana kana;
@@ -19,7 +18,6 @@ public class GuessPane extends VBox {
 
 
     // CONSTRUCTOR
-
     /**
      * The constructor of the GuessPane class.
      *
@@ -35,7 +33,6 @@ public class GuessPane extends VBox {
 
 
     // GETTER
-
     /**
      * The getter of the 'textField' attribute.
      *
@@ -47,7 +44,6 @@ public class GuessPane extends VBox {
 
 
     // METHODS
-
     /**
      * This method create and set configuration of the widget inside the GuessPane (VBox).
      *
