@@ -1,11 +1,8 @@
-/**
- * Enumerate which contains all japanese syllable with parameters (alphabetic order and syllable translate in romanji)
- *
- * @author nathanReboul
- */
-
 package fr.projectGroup.appkana.core;
 
+/**
+ * Enumerate which contains all japanese syllable with parameters (alphabetic order and syllable translate in romanji)
+ */
 public enum JapaneseSyllable {
     // FIELDS
     A(0, "a"), I(1, "i"), U(2, "u"), E(3, "e"), O(4, "o"),
@@ -24,7 +21,15 @@ public enum JapaneseSyllable {
     private final int position;
     private final String romanji;
 
+
     // CONSTRUCTOR
+
+    /**
+     * This constructor instantiates the fields of to enumerate
+     *
+     * @param position the japanese alphabetic order position
+     * @param romanji the syllable write on the latin alphabet.
+     */
     private JapaneseSyllable(int position, String romanji) {
         this.position = position;
         this.romanji = romanji;
@@ -33,6 +38,7 @@ public enum JapaneseSyllable {
     // GETTERS
     /**
      * Getter of the 'position' attribute.
+     *
      * @return Integer: the position of syllable on the japanese alphabetic order (named 'Gojuuon')
      */
     public int getPosition() {
@@ -41,6 +47,7 @@ public enum JapaneseSyllable {
 
     /**
      * Getter of the 'romaji' attribute.
+     *
      * @return String: the syllable write in latin alphabet (named 'romanji')
      */
     public String getRomanji() {
