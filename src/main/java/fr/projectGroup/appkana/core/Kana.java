@@ -1,9 +1,3 @@
-/**
- * Class that implement a generic kana (hiragana and katakana).
- *
- * @author florianLopitaux
- */
-
 package fr.projectGroup.appkana.core;
 
 import javafx.scene.image.Image;
@@ -11,6 +5,9 @@ import javafx.scene.image.ImageView;
 
 import java.util.Objects;
 
+/**
+ * This class implements a generic kana (hiragana and katakana) which uses on GuessPane class.
+ */
 public class Kana {
     // FIELDS
     private final JapaneseSyllable syllable;
@@ -18,7 +15,6 @@ public class Kana {
 
 
     // CONSTRUCTOR
-
     /**
      * Constructor of the Kana class
      *
@@ -32,7 +28,6 @@ public class Kana {
 
 
     // GETTERS
-
     /**
      * The getter of 'kanatype' attribute.
      *
@@ -53,17 +48,32 @@ public class Kana {
 
 
     // METHODS
-
+    /**
+     * This method is the toString method inherited of the Object class.
+     *
+     * @return The String representation of the object.
+     */
     @Override
     public String toString() {
         return "Kana[syllable=" + this.syllable + ", kanaType=" + kanaType + "]";
     }
 
+    /**
+     * This method hash all attributes of the class and return a unique number.
+     *
+     * @return The unique number to identify the object.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(syllable, kanaType);
     }
 
+    /**
+     * This method is the equals method inherited of the Object class.
+     *
+     * @param o the other object that we want check with the actual instantiation.
+     * @return true if the same object or false else.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
