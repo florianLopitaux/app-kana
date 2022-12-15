@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * This class is the JavaFX controller of the 'result' page of the application.
+ */
 public class RankingPageController extends AnchorPane implements JavaFXControllable {
     // FIELDS
     Stage primaryStage;
@@ -22,6 +25,11 @@ public class RankingPageController extends AnchorPane implements JavaFXControlla
 
 
     // CONSTRUCTOR
+    /**
+     * The constructor of the RankingPageController
+     *
+     * @param primaryStage the stage of the application to change the current scene.
+     */
     public RankingPageController(Stage primaryStage) {
         this.primaryStage = primaryStage;
 
@@ -30,6 +38,9 @@ public class RankingPageController extends AnchorPane implements JavaFXControlla
 
 
     // METHODS
+    /**
+     * This method is automatically called by JavaFX library and initialize or configure some things of the ranking page.
+     */
     @FXML
     private void initialize() {
         Image bgImage = new Image(String.valueOf(getClass().getResource("/fr/projectGroup/appkana/img/bg_appkana.png")));
@@ -42,6 +53,9 @@ public class RankingPageController extends AnchorPane implements JavaFXControlla
         this.generateAllScore();
     }
 
+    /**
+     * This method is the button function of the 'BackHome' button to navigate to the Home page.
+     */
     @FXML
     private void onBackHome() {
         final Scene homeScene = new Scene(new HomePageController(this.primaryStage));
@@ -50,6 +64,10 @@ public class RankingPageController extends AnchorPane implements JavaFXControlla
         this.primaryStage.setScene(homeScene);
     }
 
+    /**
+     * This method generate the 10 best score registered and convert on Label to display on the page.
+     * It called on the initialize method of this class.
+     */
     private void generateAllScore() {
         final List<PlayerScore> playerScoreList = FileUtils.readAllScores();
         Collections.sort(playerScoreList);
