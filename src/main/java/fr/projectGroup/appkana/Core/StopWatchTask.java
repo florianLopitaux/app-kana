@@ -17,7 +17,6 @@ public class StopWatchTask extends TimerTask {
 
 
     // CONSTRUCTOR
-
     /**
      * This constructor instantiates the task to initialize some attributes.
      *
