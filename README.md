@@ -1,6 +1,6 @@
 # App-kana
 
-![homePageImage](https://github.com/florianLopitaux/app-kana/blob/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/bg_appkana.png)
+![homePageImage](https://github.com/florianLopitaux/app-kana/blob/master/src/main/resources/fr/projectGroup/appkana/img/bg_appkana.png)
 
 # A propos du jeu
 
@@ -41,9 +41,9 @@ facilement comprendre le code de notre application.
 
 ### Banques de sprites
 
-- Background : [Dojo](https://github.com/florianLopitaux/app-kana/blob/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/bg_appkana.png)
-- [Katakanas](https://github.com/florianLopitaux/app-kana/tree/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/katakana)
-- [Hiraganas](https://github.com/florianLopitaux/app-kana/tree/feature-JavaCore/src/main/resources/fr/projectGroup/appkana/img/hiragana)
+- Background : [Dojo](https://github.com/florianLopitaux/app-kana/blob/master/src/main/resources/fr/projectGroup/appkana/img/bg_appkana.png)
+- [Katakanas](https://github.com/florianLopitaux/app-kana/blob/master/src/main/resources/fr/projectGroup/appkana/img/katakana)
+- [Hiraganas](https://github.com/florianLopitaux/app-kana/blob/master/src/main/resources/fr/projectGroup/appkana/img/hiragana)
 
 ## Inspirations
 
